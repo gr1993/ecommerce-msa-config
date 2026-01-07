@@ -6,7 +6,7 @@ spring:
   datasource:
     url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/user_service?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     username: root
-    password: '{cipher}e812214c1187ed2324543b08947e67f37b318018f99490d7014347dc8afec2ea' # 123123
+    password: '{cipher}b03f74a3e1c8e958180eb2381c047a717e58d4e35b315d0e0985aa8c1dec7ad4' # 123123
     driver-class-name: com.mysql.cj.jdbc.Driver
   
   kafka:
