@@ -1,6 +1,6 @@
 logging:
   level:
-    com.example.userservice.outbox.OutboxEventScheduler: WARN
+    com.example.userservice.service.outbox.OutboxEventScheduler: WARN
 
 spring:
   datasource:
