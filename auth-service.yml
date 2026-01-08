@@ -22,7 +22,7 @@ spring:
         enable.idempotence: true
 
 jwt:
-  secret: ecommerce-msa-auth-service-jwt-secret-key-256-bit-minimum-length
+  secret: '{cipher}9e44b8731ec47b706ce7613a049e9aa2063a74622b8f2fd8156aba088a909237e2f96bfb8409b5ec51af4d9b2a8093ea499ae24a7960b75448a1d63e7a2ff94da19439f0acafd031813ad63fdbe0e58cf684ea5519fb3d1324a73c97c1dc447d'
   access-token:
     expiration: 1800000
   refresh-token:
