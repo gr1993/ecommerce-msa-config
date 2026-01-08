@@ -21,8 +21,8 @@ config-repo/
 최종적으로 동일한 키가 여러 파일에 존재하면, **나중에 읽은 파일의 값이 우선 적용**된다.
 
 #### 설정 파일 병합 순서
-1. application.yml – 모든 서비스에 공통으로 적용되는 기본 설정
-2. application-dev.yml – 모든 서비스에 적용되는 dev 프로필 전용 설정
-3. user-service.yml – user-service 전용 공통 설정
-4. user-service-dev.yml – user-service 전용 dev 프로필 설정
-5. 로컬 프로젝트의 application.yml
+1. 로컬 프로젝트의 application.yml (가장 기본 / 최하위 순위)
+2. application.yml – 모든 서비스에 공통으로 적용되는 기본 설정
+3. application-dev.yml – 모든 서비스에 적용되는 dev 프로필 전용 설정
+4. user-service.yml – user-service 전용 공통 설정
+5. user-service-dev.yml – user-service 전용 dev 프로필 설정
