@@ -44,6 +44,10 @@ spring:
                 allowCredentials: false
 
 
+jwt:
+  secret: '{cipher}2eba26d81a4d9e57d60be1c695dc7b6c27a0df6303a57450de2da92ba104d1b25ec0faa562d434c8c891926087b491d9e5caffaa0b80b73305a27b81ecef14e7037c44a7e7ecec85f3872e1c2ab50cef'
+
+
 resilience4j:
   circuitbreaker:
     configs:
