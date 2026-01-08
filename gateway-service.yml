@@ -11,6 +11,10 @@ spring:
                 - Path=/api/auth/**
               filters:
                 - RewritePath=/api/(?<segment>.*), /api/$\{segment}
+                - name: CircuitBreaker
+                  args:
+                    name: authServiceCircuitBreaker
+                    fallbackUri: forward:/fallback/auth
     
             # User Service Routes
             - id: user-service
@@ -19,6 +23,10 @@ spring:
                 - Path=/api/users/**
               filters:
                 - RewritePath=/api/(?<segment>.*), /api/$\{segment}
+                - name: CircuitBreaker
+                  args:
+                    name: userServiceCircuitBreaker
+                    fallbackUri: forward:/fallback/user
 
           # Global CORS Configuration
           globalcors:
@@ -34,3 +42,42 @@ spring:
                   - OPTIONS
                 allowedHeaders: "*"
                 allowCredentials: false
+
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+        permittedNumberOfCallsInHalfOpenState: 3
+        waitDurationInOpenState: 10s
+        failureRateThreshold: 50
+        slowCallRateThreshold: 100
+        slowCallDurationThreshold: 3s
+        registerHealthIndicator: true
+    instances:
+      authServiceCircuitBreaker:
+        baseConfig: default
+      userServiceCircuitBreaker:
+        baseConfig: default
+
+  timelimiter:
+    configs:
+      default:
+        timeoutDuration: 5s
+    instances:
+      authServiceCircuitBreaker:
+        baseConfig: default
+      userServiceCircuitBreaker:
+        baseConfig: default
+
+
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health, metrics, circuitbreakers
