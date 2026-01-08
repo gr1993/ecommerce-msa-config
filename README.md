@@ -25,3 +25,4 @@ config-repo/
 2. application-dev.yml – 모든 서비스에 적용되는 dev 프로필 전용 설정
 3. user-service.yml – user-service 전용 공통 설정
 4. user-service-dev.yml – user-service 전용 dev 프로필 설정
+5. 로컬 프로젝트의 application.yml
