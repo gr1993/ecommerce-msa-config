@@ -4,13 +4,34 @@ spring:
       server:
         webflux:
           routes:
-            # Auth Service Routes
+            # Auth Service Routes - USER-level endpoints
             - id: auth-service
               uri: lb://auth-service
               predicates:
                 - Path=/api/auth/**
               filters:
                 - RewritePath=/api/(?<segment>.*), /api/$\{segment}
+                - name: JwtAuthentication
+                  args:
+                    requiredRole: USER
+                    whitelist:
+                      - /api/auth/login
+                      - /api/auth/refresh
+                - name: CircuitBreaker
+                  args:
+                    name: authServiceCircuitBreaker
+                    fallbackUri: forward:/fallback/auth
+            
+            # Auth Service Routes - ADMIN-level endpoints
+            - id: admin-auth-service
+              uri: lb://auth-service
+              predicates:
+                - Path=/api/admin/auth/**
+              filters:
+                - RewritePath=/api/(?<segment>.*), /api/$\{segment}
+                - name: JwtAuthentication
+                  args:
+                    requiredRole: ADMIN
                 - name: CircuitBreaker
                   args:
                     name: authServiceCircuitBreaker
