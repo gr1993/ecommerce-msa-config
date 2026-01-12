@@ -37,13 +37,31 @@ spring:
                     name: authServiceCircuitBreaker
                     fallbackUri: forward:/fallback/auth
     
-            # User Service Routes
+            # User Service Routes - USER-level endpoints
             - id: user-service
               uri: lb://user-service
               predicates:
                 - Path=/api/users/**
               filters:
                 - RewritePath=/api/(?<segment>.*), /api/$\{segment}
+                - name: JwtAuthentication
+                  args:
+                    requiredRole: USER
+                - name: CircuitBreaker
+                  args:
+                    name: userServiceCircuitBreaker
+                    fallbackUri: forward:/fallback/user
+
+            # User Service Routes - ADMIN-level endpoints
+            - id: admin-user-service
+              uri: lb://user-service
+              predicates:
+                - Path=/api/admin/users/**
+              filters:
+                - RewritePath=/api/(?<segment>.*), /api/$\{segment}
+                - name: JwtAuthentication
+                  args:
+                    requiredRole: ADMIN
                 - name: CircuitBreaker
                   args:
                     name: userServiceCircuitBreaker
