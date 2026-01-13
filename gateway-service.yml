@@ -67,6 +67,36 @@ spring:
                     name: userServiceCircuitBreaker
                     fallbackUri: forward:/fallback/user
 
+            # Product Service Routes - USER-level endpoints
+            - id: product-service
+              uri: lb://product-service
+              predicates:
+                - Path=/api/product/**
+              filters:
+                - RewritePath=/api/(?<segment>.*), /api/$\{segment}
+                - name: JwtAuthentication
+                  args:
+                    requiredRole: USER
+                - name: CircuitBreaker
+                  args:
+                    name: productServiceCircuitBreaker
+                    fallbackUri: forward:/fallback/product
+
+            # Product Service Routes - ADMIN-level endpoints
+            - id: admin-product-service
+              uri: lb://product-service
+              predicates:
+                - Path=/api/admin/product/**
+              filters:
+                - RewritePath=/api/(?<segment>.*), /api/$\{segment}
+                - name: JwtAuthentication
+                  args:
+                    requiredRole: ADMIN
+                - name: CircuitBreaker
+                  args:
+                    name: productServiceCircuitBreaker
+                    fallbackUri: forward:/fallback/product
+
           # Global CORS Configuration
           globalcors:
             cors-configurations:
@@ -104,6 +134,8 @@ resilience4j:
         baseConfig: default
       userServiceCircuitBreaker:
         baseConfig: default
+      productServiceCircuitBreaker:
+        baseConfig: default
 
   timelimiter:
     configs:
@@ -113,6 +145,8 @@ resilience4j:
       authServiceCircuitBreaker:
         baseConfig: default
       userServiceCircuitBreaker:
+        baseConfig: default
+      productServiceCircuitBreaker:
         baseConfig: default
 
 
