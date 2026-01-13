@@ -1,4 +1,10 @@
 spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 50MB
+
   datasource:
     url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/product_service?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     username: root
@@ -28,3 +34,9 @@ springwolf:
           properties:
             acks: all
             enable.idempotence: true
+
+file:
+  upload:
+    temp-dir: uploads/temp
+    confirmed-dir: uploads/images
+    base-url: /files
