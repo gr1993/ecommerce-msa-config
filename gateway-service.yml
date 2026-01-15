@@ -67,6 +67,14 @@ spring:
                     name: userServiceCircuitBreaker
                     fallbackUri: forward:/fallback/user
 
+            # Product Service Routes - File resource
+            - id: product-service-files
+              uri: lb://product-service
+              predicates:
+                - Path=/product/files/**
+              filters:
+                - RewritePath=/product/files/(?<segment>.*), /files/${segment}
+
             # Product Service Routes - USER-level endpoints
             - id: product-service
               uri: lb://product-service
