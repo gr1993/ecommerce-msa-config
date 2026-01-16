@@ -94,8 +94,7 @@ spring:
             - id: admin-product-service
               uri: lb://product-service
               predicates:
-                - Path=/api/admin/products/**
-                - Path=/api/admin/categories/**
+                - Path=/api/admin/products/**,/api/admin/categories/**
               filters:
                 - RewritePath=/api/(?<segment>.*), /api/$\{segment}
                 - name: JwtAuthentication
