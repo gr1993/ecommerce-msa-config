@@ -1,0 +1,5 @@
+spring:
+  data:
+    elasticsearch:
+      client:
+        endpoints: ${ELASTICSEARCH_HOST:localhost}:9200
