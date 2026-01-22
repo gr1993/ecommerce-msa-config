@@ -105,6 +105,21 @@ spring:
                     name: productServiceCircuitBreaker
                     fallbackUri: forward:/fallback/product
 
+            # Catalog Service Routes - USER-level endpoints
+            - id: catalog-service
+              uri: lb://catalog-service
+              predicates:
+                - Path=/api/catalog/**
+              filters:
+                - RewritePath=/api/(?<segment>.*), /api/$\{segment}
+                - name: JwtAuthentication
+                  args:
+                    requiredRole: USER
+                - name: CircuitBreaker
+                  args:
+                    name: catalogServiceCircuitBreaker
+                    fallbackUri: forward:/fallback/product
+
           # Global CORS Configuration
           globalcors:
             cors-configurations:
@@ -144,6 +159,8 @@ resilience4j:
         baseConfig: default
       productServiceCircuitBreaker:
         baseConfig: default
+      catalogServiceCircuitBreaker:
+        baseConfig: default
 
   timelimiter:
     configs:
@@ -155,6 +172,8 @@ resilience4j:
       userServiceCircuitBreaker:
         baseConfig: default
       productServiceCircuitBreaker:
+        baseConfig: default
+      catalogServiceCircuitBreaker:
         baseConfig: default
 
 
