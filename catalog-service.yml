@@ -11,3 +11,6 @@ spring:
 springwolf:
   docket:
     base-package: com.example.catalogservice.consumer
+
+product-service:
+  url: ""
