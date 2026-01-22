@@ -3,6 +3,10 @@ spring:
     elasticsearch:
       client:
         endpoints: ${ELASTICSEARCH_HOST:localhost}:9200
+        
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: 6379
 
 springwolf:
   docket:
