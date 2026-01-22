@@ -115,6 +115,8 @@ spring:
                 - name: JwtAuthentication
                   args:
                     requiredRole: USER
+                    whitelist:
+                      - /api/catalog/categories/tree
                 - name: CircuitBreaker
                   args:
                     name: catalogServiceCircuitBreaker
