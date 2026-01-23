@@ -22,7 +22,7 @@ spring:
 
 springwolf:
   docket:
-    base-package: com.example.userservice.service
+    base-package: com.example.productservice.global.service
   plugin:
     kafka:
       publishing:
