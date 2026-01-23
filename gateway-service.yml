@@ -118,6 +118,7 @@ spring:
                     whitelist:
                       - /api/catalog/categories/tree
                       - /api/catalog/products
+                      - /api/catalog/products/autocomplete
                 - name: CircuitBreaker
                   args:
                     name: catalogServiceCircuitBreaker
