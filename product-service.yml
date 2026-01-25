@@ -1,3 +1,7 @@
+logging:
+  level:
+    com.example.productservice.global.service.outbox.OutboxEventScheduler: WARN
+
 spring:
   servlet:
     multipart:
