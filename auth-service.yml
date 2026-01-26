@@ -21,7 +21,7 @@ spring:
           UserRegisteredEvent:com.example.authservice.domain.event.UserRegisteredEvent
     producer: # (DLQ 전송용)
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       properties:
         acks: all
         enable.idempotence: true
