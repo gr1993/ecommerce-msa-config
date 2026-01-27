@@ -24,7 +24,9 @@ spring:
           productUpdatedEvent:com.example.catalogservice.consumer.event.ProductUpdatedEvent,
           categoryCreatedEvent:com.example.catalogservice.consumer.event.CategoryCreatedEvent,
           categoryDeletedEvent:com.example.catalogservice.consumer.event.CategoryDeletedEvent,
-          categoryUpdatedEvent:com.example.catalogservice.consumer.event.CategoryUpdatedEvent
+          categoryUpdatedEvent:com.example.catalogservice.consumer.event.CategoryUpdatedEvent,
+          keywordCreatedEvent:com.example.catalogservice.consumer.event.KeywordCreatedEvent,
+          keywordDeletedEvent:com.example.catalogservice.consumer.event.KeywordDeletedEvent
     producer: # (DLQ 전송용)
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
