@@ -28,7 +28,9 @@ spring:
           productUpdatedEvent:com.example.productservice.product.domain.event.ProductUpdatedEvent,
           categoryCreatedEvent:com.example.productservice.category.domain.event.CategoryCreatedEvent,
           categoryDeletedEvent:com.example.productservice.category.domain.event.CategoryDeletedEvent,
-          categoryUpdatedEvent:com.example.productservice.category.domain.event.CategoryUpdatedEvent
+          categoryUpdatedEvent:com.example.productservice.category.domain.event.CategoryUpdatedEvent,
+          keywordCreatedEvent:com.example.productservice.product.domain.event.KeywordCreatedEvent,
+          keywordDeletedEvent:com.example.productservice.product.domain.event.KeywordDeletedEvent
 
 springwolf:
   docket:
@@ -49,7 +51,9 @@ springwolf:
               productUpdatedEvent:com.example.productservice.product.domain.event.ProductUpdatedEvent,
               categoryCreatedEvent:com.example.productservice.category.domain.event.CategoryCreatedEvent,
               categoryDeletedEvent:com.example.productservice.category.domain.event.CategoryDeletedEvent,
-              categoryUpdatedEvent:com.example.productservice.category.domain.event.CategoryUpdatedEvent
+              categoryUpdatedEvent:com.example.productservice.category.domain.event.CategoryUpdatedEvent,
+              keywordCreatedEvent:com.example.productservice.product.domain.event.KeywordCreatedEvent,
+              keywordDeletedEvent:com.example.productservice.product.domain.event.KeywordDeletedEvent
 
 file:
   upload:
