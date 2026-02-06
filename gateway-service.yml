@@ -125,6 +125,39 @@ spring:
                     name: catalogServiceCircuitBreaker
                     fallbackUri: forward:/fallback/catalog
 
+            # Order Service Routes - USER-level endpoints
+            - id: order-service
+              uri: lb://order-service
+              predicates:
+                - Path=/api/order/**
+              filters:
+                - RewritePath=/api/(?<segment>.*), /api/$\{segment}
+                - name: JwtAuthentication
+                  args:
+                    requiredRole: USER
+                    whitelist:
+                      - /api/order
+                - name: CircuitBreaker
+                  args:
+                    name: orderServiceCircuitBreaker
+                    fallbackUri: forward:/fallback/order
+
+            # Order Service Routes - ADMIN-level endpoints
+            - id: admin-order-service
+              uri: lb://order-service
+              predicates:
+                - Path=/api/admin/order/**
+              filters:
+                - RewritePath=/api/(?<segment>.*), /api/$\{segment}
+                - name: JwtAuthentication
+                  args:
+                    requiredRole: ADMIN
+                - name: CircuitBreaker
+                  args:
+                    name: orderServiceCircuitBreaker
+                    fallbackUri: forward:/fallback/order
+
+
           # Global CORS Configuration
           globalcors:
             cors-configurations:
@@ -166,6 +199,8 @@ resilience4j:
         baseConfig: default
       catalogServiceCircuitBreaker:
         baseConfig: default
+      orderServiceCircuitBreaker:
+        baseConfig: default
 
   timelimiter:
     configs:
@@ -179,6 +214,8 @@ resilience4j:
       productServiceCircuitBreaker:
         baseConfig: default
       catalogServiceCircuitBreaker:
+        baseConfig: default
+      orderServiceCircuitBreaker:
         baseConfig: default
 
 
