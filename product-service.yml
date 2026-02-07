@@ -28,7 +28,10 @@ spring:
         # 역직렬화할 때 신뢰할 패키지 지정
         spring.json.trusted.packages: "com.example.*"
         spring.json.type.mapping: >
-          orderCreatedEvent:com.example.productservice.consumer.event.OrderCreatedEvent
+          orderCreatedEvent:com.example.productservice.consumer.event.OrderCreatedEvent,
+          orderCancelledEvent:com.example.productservice.consumer.event.OrderCancelledEvent,
+          paymentCancelledEvent:com.example.productservice.consumer.event.PaymentCancelledEvent
+
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
@@ -42,7 +45,8 @@ spring:
           categoryDeletedEvent:com.example.productservice.category.domain.event.CategoryDeletedEvent,
           categoryUpdatedEvent:com.example.productservice.category.domain.event.CategoryUpdatedEvent,
           keywordCreatedEvent:com.example.productservice.product.domain.event.KeywordCreatedEvent,
-          keywordDeletedEvent:com.example.productservice.product.domain.event.KeywordDeletedEvent
+          keywordDeletedEvent:com.example.productservice.product.domain.event.KeywordDeletedEvent,
+          stockRejectedEvent:com.example.productservice.product.domain.event.StockRejectedEvent
 
 springwolf:
   docket:
