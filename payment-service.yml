@@ -8,7 +8,8 @@ toss:
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/payment-service
+      uri: mongodb://${MONGODB_HOST:localhost}:27017/payment_service
+      database: payment_service
 
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9091,localhost:9092,localhost:9094}
