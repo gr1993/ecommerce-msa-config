@@ -19,7 +19,9 @@ spring:
         acks: all
         enable.idempotence: true
         spring.json.type.mapping: >
+          paymentConfirmedEvent:com.example.paymentservice.domain.event.PaymentConfirmedEvent,
           paymentCancelledEvent:com.example.paymentservice.domain.event.PaymentCancelledEvent
+
 
 springwolf:
   docket:
@@ -36,4 +38,5 @@ springwolf:
             acks: all
             enable.idempotence: true
             spring.json.type.mapping: >
+              paymentConfirmedEvent:com.example.paymentservice.domain.event.PaymentConfirmedEvent,
               paymentCancelledEvent:com.example.paymentservice.domain.event.PaymentCancelledEvent
