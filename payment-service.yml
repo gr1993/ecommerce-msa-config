@@ -1,0 +1,39 @@
+toss:
+  payments:
+    api:
+      base-url: https://api.tosspayments.com
+      secret-key: b78d0b088089bb9090d167bdffab15e2b0feb18050d0f4b25fce91e526735ea7fc7bf0afd4bd7e6ac827d5530d5f166aaf59cea908c83a268ec581b62143aaf5
+
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/payment-service
+
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9091,localhost:9092,localhost:9094}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        acks: all
+        enable.idempotence: true
+        spring.json.type.mapping: >
+          paymentCancelledEvent:com.example.paymentservice.domain.event.PaymentCancelledEvent
+
+springwolf:
+  docket:
+    base-package: com.example.orderservice.global.service
+  plugin:
+    kafka:
+      publishing:
+        enabled: true
+        producer:
+          bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9091,localhost:9092,localhost:9094}
+          key-serializer: org.apache.kafka.common.serialization.StringSerializer
+          value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+          properties:
+            acks: all
+            enable.idempotence: true
+            spring.json.type.mapping: >
+              paymentCancelledEvent:com.example.paymentservice.domain.event.PaymentCancelledEvent
