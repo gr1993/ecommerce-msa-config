@@ -87,7 +87,7 @@ spring:
             - id: order-service
               uri: lb://order-service
               predicates:
-                - Path=/api/order/**
+                - Path=/api/orders/**
               filters:
                 - RewritePath=/api/(?<segment>.*), /api/$\{segment}
                 - name: JwtAuthentication
@@ -102,7 +102,7 @@ spring:
             - id: admin-order-service
               uri: lb://order-service
               predicates:
-                - Path=/api/admin/order/**
+                - Path=/api/admin/orders/**
               filters:
                 - RewritePath=/api/(?<segment>.*), /api/$\{segment}
                 - name: JwtAuthentication
