@@ -18,7 +18,8 @@ spring:
         acks: all
         enable.idempotence: true
         spring.json.type.mapping: >
-          orderCreatedEvent:com.example.orderservice.domain.event.OrderCreatedEvent
+          orderCreatedEvent:com.example.orderservice.domain.event.OrderCreatedEvent,
+          orderCancelledEvent:com.example.orderservice.domain.event.OrderCancelledEvent
 
 springwolf:
   docket:
@@ -35,7 +36,8 @@ springwolf:
             acks: all
             enable.idempotence: true
             spring.json.type.mapping: >
-              orderCreatedEvent:com.example.orderservice.domain.event.OrderCreatedEvent
+              orderCreatedEvent:com.example.orderservice.domain.event.OrderCreatedEvent,
+              orderCancelledEvent:com.example.orderservice.domain.event.OrderCancelledEvent
 
 
 product-service:
