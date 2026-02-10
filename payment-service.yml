@@ -24,7 +24,7 @@ spring:
         # 역직렬화할 때 신뢰할 패키지 지정
         spring.json.trusted.packages: "com.example.*"
         spring.json.type.mapping: >
-          orderCreatedEvent:com.example.paymentservice.consumer.event.OrderCreatedEvent,
+          orderCreatedEvent:com.example.paymentservice.consumer.event.OrderCreatedEvent
 
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
