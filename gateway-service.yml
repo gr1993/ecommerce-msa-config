@@ -4,34 +4,13 @@ spring:
       server:
         webflux:
           routes:
-            # Auth Service Routes - USER-level endpoints
+            # Auth Service Routes - USER-level endpoints (관리자 로그인도 같은 route 사용)
             - id: auth-service
               uri: lb://auth-service
               predicates:
                 - Path=/api/auth/**
               filters:
                 - RewritePath=/api/(?<segment>.*), /api/$\{segment}
-                - name: JwtAuthentication
-                  args:
-                    requiredRole: USER
-                    whitelist:
-                      - /api/auth/login
-                      - /api/auth/refresh
-                - name: CircuitBreaker
-                  args:
-                    name: authServiceCircuitBreaker
-                    fallbackUri: forward:/fallback/auth
-            
-            # Auth Service Routes - ADMIN-level endpoints
-            - id: admin-auth-service
-              uri: lb://auth-service
-              predicates:
-                - Path=/api/admin/auth/**
-              filters:
-                - RewritePath=/api/(?<segment>.*), /api/$\{segment}
-                - name: JwtAuthentication
-                  args:
-                    requiredRole: ADMIN
                 - name: CircuitBreaker
                   args:
                     name: authServiceCircuitBreaker
@@ -47,6 +26,8 @@ spring:
                 - name: JwtAuthentication
                   args:
                     requiredRole: USER
+                    whitelist:
+                      - /api/users/signup
                 - name: CircuitBreaker
                   args:
                     name: userServiceCircuitBreaker
@@ -74,21 +55,6 @@ spring:
                 - Path=/product/files/**
               filters:
                 - RewritePath=/product/files/(?<segment>.*), /files/${segment}
-
-            # Product Service Routes - USER-level endpoints
-            - id: product-service
-              uri: lb://product-service
-              predicates:
-                - Path=/api/products/**
-              filters:
-                - RewritePath=/api/(?<segment>.*), /api/$\{segment}
-                - name: JwtAuthentication
-                  args:
-                    requiredRole: USER
-                - name: CircuitBreaker
-                  args:
-                    name: productServiceCircuitBreaker
-                    fallbackUri: forward:/fallback/product
 
             # Product Service Routes - ADMIN-level endpoints
             - id: admin-product-service
