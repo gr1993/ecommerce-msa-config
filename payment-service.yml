@@ -13,6 +13,19 @@ spring:
 
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9091,localhost:9092,localhost:9094}
+    consumer:
+      group-id: payment-service-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      enable-auto-commit: false
+      max-poll-records: 10
+      properties:
+        # 역직렬화할 때 신뢰할 패키지 지정
+        spring.json.trusted.packages: "com.example.*"
+        spring.json.type.mapping: >
+          orderCreatedEvent:com.example.paymentservice.consumer.event.OrderCreatedEvent,
+
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
