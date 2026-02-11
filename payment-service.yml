@@ -2,7 +2,7 @@ toss:
   payments:
     api:
       base-url: https://api.tosspayments.com
-      secret-key: b78d0b088089bb9090d167bdffab15e2b0feb18050d0f4b25fce91e526735ea7fc7bf0afd4bd7e6ac827d5530d5f166aaf59cea908c83a268ec581b62143aaf5
+      secret-key: '{cipher}b78d0b088089bb9090d167bdffab15e2b0feb18050d0f4b25fce91e526735ea7fc7bf0afd4bd7e6ac827d5530d5f166aaf59cea908c83a268ec581b62143aaf5'
 
 
 spring:
