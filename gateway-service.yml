@@ -113,6 +113,21 @@ spring:
                     name: orderServiceCircuitBreaker
                     fallbackUri: forward:/fallback/order
 
+            # Payment Service Routes - USER-level endpoints
+            - id: payment-service
+              uri: lb://payment-service
+              predicates:
+                - Path=/api/payments/**
+              filters:
+                - RewritePath=/api/(?<segment>.*), /api/$\{segment}
+                - name: JwtAuthentication
+                  args:
+                    requiredRole: USER
+                - name: CircuitBreaker
+                  args:
+                    name: paymentServiceCircuitBreaker
+                    fallbackUri: forward:/fallback/payment
+
 
           # Global CORS Configuration
           globalcors:
@@ -157,6 +172,8 @@ resilience4j:
         baseConfig: default
       orderServiceCircuitBreaker:
         baseConfig: default
+      paymentServiceCircuitBreaker:
+        baseConfig: default
 
   timelimiter:
     configs:
@@ -172,6 +189,8 @@ resilience4j:
       catalogServiceCircuitBreaker:
         baseConfig: default
       orderServiceCircuitBreaker:
+        baseConfig: default
+      paymentServiceCircuitBreaker:
         baseConfig: default
 
 
