@@ -5,6 +5,11 @@ spring:
     password: '{cipher}b03f74a3e1c8e958180eb2381c047a717e58d4e35b315d0e0985aa8c1dec7ad4' # 123123
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9091,localhost:9092,localhost:9094}
     consumer:
