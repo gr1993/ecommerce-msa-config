@@ -36,3 +36,9 @@ jwt:
 springwolf:
   docket:
     base-package: com.example.authservice.consumer
+
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
