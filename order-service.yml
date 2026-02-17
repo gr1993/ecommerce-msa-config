@@ -38,7 +38,9 @@ spring:
         enable.idempotence: true
         spring.json.type.mapping: >
           orderCreatedEvent:com.example.orderservice.domain.event.OrderCreatedEvent,
-          orderCancelledEvent:com.example.orderservice.domain.event.OrderCancelledEvent
+          orderCancelledEvent:com.example.orderservice.domain.event.OrderCancelledEvent,
+          couponUsedEvent:com.example.orderservice.domain.event.CouponUsedEvent,
+          couponRestoredEvent:com.example.orderservice.domain.event.CouponRestoredEvent
 
 springwolf:
   docket:
@@ -56,8 +58,13 @@ springwolf:
             enable.idempotence: true
             spring.json.type.mapping: >
               orderCreatedEvent:com.example.orderservice.domain.event.OrderCreatedEvent,
-              orderCancelledEvent:com.example.orderservice.domain.event.OrderCancelledEvent
+              orderCancelledEvent:com.example.orderservice.domain.event.OrderCancelledEvent,
+              couponUsedEvent:com.example.orderservice.domain.event.CouponUsedEvent,
+              couponRestoredEvent:com.example.orderservice.domain.event.CouponRestoredEvent
 
 
 product-service:
+  url: ""
+
+promotion-service:
   url: ""
