@@ -158,6 +158,36 @@ spring:
                     name: promotionServiceCircuitBreaker
                     fallbackUri: forward:/fallback/promotion
 
+            # Shipping Service Routes - USER-level endpoints
+            - id: shipping-service
+              uri: lb://shipping-service
+              predicates:
+                - Path=/api/shipping/**
+              filters:
+                - RewritePath=/api/(?<segment>.*), /api/$\{segment}
+                - name: JwtAuthentication
+                  args:
+                    requiredRole: USER
+                - name: CircuitBreaker
+                  args:
+                    name: shippingServiceCircuitBreaker
+                    fallbackUri: forward:/fallback/shipping
+
+            # Shipping Service Routes - ADMIN-level endpoints
+            - id: admin-shipping-service
+              uri: lb://shipping-service
+              predicates:
+                - Path=/api/admin/shipping/**
+              filters:
+                - RewritePath=/api/(?<segment>.*), /api/$\{segment}
+                - name: JwtAuthentication
+                  args:
+                    requiredRole: ADMIN
+                - name: CircuitBreaker
+                  args:
+                    name: shippingServiceCircuitBreaker
+                    fallbackUri: forward:/fallback/shipping
+
 
           # Global CORS Configuration
           globalcors:
@@ -206,6 +236,8 @@ resilience4j:
         baseConfig: default
       promotionServiceCircuitBreaker:
         baseConfig: default
+      shippingServiceCircuitBreaker:
+        baseConfig: default
 
   timelimiter:
     configs:
@@ -225,6 +257,8 @@ resilience4j:
       paymentServiceCircuitBreaker:
         baseConfig: default
       promotionServiceCircuitBreaker:
+        baseConfig: default
+      shippingServiceCircuitBreaker:
         baseConfig: default
 
 
