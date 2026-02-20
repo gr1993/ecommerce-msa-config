@@ -13,3 +13,9 @@ spring:
 
 order-service:
   url: ""
+
+mock-delivery-server:
+  url: ""
+  courier-account-key: CJ_COURIER_ACCOUNT_KEY_2024
+  tracking-api-key: SMART_DELIVERY_API_KEY_2024
+  courier-code: "04"
