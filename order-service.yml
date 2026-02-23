@@ -66,6 +66,9 @@ springwolf:
 product-service:
   url: ""
 
+payment-service:
+  url: ""
+
 promotion-service:
   url: ""
 
