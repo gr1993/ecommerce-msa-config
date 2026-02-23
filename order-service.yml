@@ -68,3 +68,6 @@ product-service:
 
 promotion-service:
   url: ""
+
+shipping-service:
+  url: ""
