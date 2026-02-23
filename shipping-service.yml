@@ -58,7 +58,7 @@ order-service:
   url: ""
 
 mock-delivery-server:
-  url: "http://mock-delivery:9082"
+  url: "http://mock-delivery:8080"
   courier-account-key: CJ_COURIER_ACCOUNT_KEY_2024
   tracking-api-key: SMART_DELIVERY_API_KEY_2024
   courier-code: "04"
