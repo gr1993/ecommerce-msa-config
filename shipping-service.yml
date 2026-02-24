@@ -37,6 +37,8 @@ spring:
         acks: all
         enable.idempotence: true
         spring.json.type.mapping: >
+          shippingStartedEvent:com.example.shippingservice.domain.event.ShippingStartedEvent,
+          shippingDeliveredEvent:com.example.shippingservice.domain.event.ShippingDeliveredEvent,
           returnCompletedEvent:com.example.shippingservice.domain.event.ReturnCompletedEvent
 
 
@@ -55,6 +57,8 @@ springwolf:
             acks: all
             enable.idempotence: true
             spring.json.type.mapping: >
+              shippingStartedEvent:com.example.shippingservice.domain.event.ShippingStartedEvent,
+              shippingDeliveredEvent:com.example.shippingservice.domain.event.ShippingDeliveredEvent,
               returnCompletedEvent:com.example.shippingservice.domain.event.ReturnCompletedEvent
 
 
