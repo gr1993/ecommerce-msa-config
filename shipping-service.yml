@@ -39,6 +39,7 @@ spring:
         spring.json.type.mapping: >
           shippingStartedEvent:com.example.shippingservice.domain.event.ShippingStartedEvent,
           shippingDeliveredEvent:com.example.shippingservice.domain.event.ShippingDeliveredEvent,
+          returnApprovedEvent:com.example.shippingservice.domain.event.ReturnApprovedEvent,
           returnCompletedEvent:com.example.shippingservice.domain.event.ReturnCompletedEvent
 
 
@@ -59,6 +60,7 @@ springwolf:
             spring.json.type.mapping: >
               shippingStartedEvent:com.example.shippingservice.domain.event.ShippingStartedEvent,
               shippingDeliveredEvent:com.example.shippingservice.domain.event.ShippingDeliveredEvent,
+              returnApprovedEvent:com.example.shippingservice.domain.event.ReturnApprovedEvent,
               returnCompletedEvent:com.example.shippingservice.domain.event.ReturnCompletedEvent
 
 
