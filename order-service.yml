@@ -32,6 +32,7 @@ spring:
           shippingStartedEvent:com.example.orderservice.consumer.event.ShippingStartedEvent,
           shippingDeliveredEvent:com.example.orderservice.consumer.event.ShippingDeliveredEvent,
           returnApprovedEvent:com.example.orderservice.consumer.event.ReturnApprovedEvent,
+          returnInTransitEvent:com.example.orderservice.consumer.event.ReturnInTransitEvent,
           returnCompletedEvent:com.example.orderservice.consumer.event.ReturnCompletedEvent
     
     producer:
