@@ -35,7 +35,8 @@ spring:
         spring.json.type.mapping: >
           orderCreatedEvent:com.example.productservice.consumer.event.OrderCreatedEvent,
           orderCancelledEvent:com.example.productservice.consumer.event.OrderCancelledEvent,
-          paymentCancelledEvent:com.example.productservice.consumer.event.PaymentCancelledEvent
+          paymentCancelledEvent:com.example.productservice.consumer.event.PaymentCancelledEvent,
+          inventoryDecreaseEvent:com.example.productservice.consumer.event.InventoryDecreaseEvent
 
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
