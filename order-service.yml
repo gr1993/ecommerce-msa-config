@@ -33,7 +33,12 @@ spring:
           shippingDeliveredEvent:com.example.orderservice.consumer.event.ShippingDeliveredEvent,
           returnApprovedEvent:com.example.orderservice.consumer.event.ReturnApprovedEvent,
           returnInTransitEvent:com.example.orderservice.consumer.event.ReturnInTransitEvent,
-          returnCompletedEvent:com.example.orderservice.consumer.event.ReturnCompletedEvent
+          returnCompletedEvent:com.example.orderservice.consumer.event.ReturnCompletedEvent,
+          exchangeApprovedEvent:com.example.orderservice.consumer.event.ExchangeApprovedEvent,
+          exchangeCollectingEvent:com.example.orderservice.consumer.event.ExchangeCollectingEvent,
+          exchangeReturnCompletedEvent:com.example.orderservice.consumer.event.ExchangeReturnCompletedEvent,
+          exchangeShippingEvent:com.example.orderservice.consumer.event.ExchangeShippingEvent,
+          exchangeCompletedEvent:com.example.orderservice.consumer.event.ExchangeCompletedEvent,
     
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer

@@ -41,7 +41,12 @@ spring:
           shippingDeliveredEvent:com.example.shippingservice.domain.event.ShippingDeliveredEvent,
           returnApprovedEvent:com.example.shippingservice.domain.event.ReturnApprovedEvent,
           returnInTransitEvent:com.example.shippingservice.domain.event.ReturnInTransitEvent,
-          returnCompletedEvent:com.example.shippingservice.domain.event.ReturnCompletedEvent
+          returnCompletedEvent:com.example.shippingservice.domain.event.ReturnCompletedEvent,
+          exchangeApprovedEvent:com.example.shippingservice.domain.event.ExchangeApprovedEvent,
+          exchangeCollectingEvent:com.example.shippingservice.domain.event.ExchangeCollectingEvent,
+          exchangeReturnCompletedEvent:com.example.shippingservice.domain.event.ExchangeReturnCompletedEvent,
+          exchangeShippingEvent:com.example.shippingservice.domain.event.ExchangeShippingEvent,
+          exchangeCompletedEvent:com.example.shippingservice.domain.event.ExchangeCompletedEvent
 
 
 springwolf:
@@ -63,7 +68,12 @@ springwolf:
               shippingDeliveredEvent:com.example.shippingservice.domain.event.ShippingDeliveredEvent,
               returnApprovedEvent:com.example.shippingservice.domain.event.ReturnApprovedEvent,
               returnInTransitEvent:com.example.shippingservice.domain.event.ReturnInTransitEvent,
-              returnCompletedEvent:com.example.shippingservice.domain.event.ReturnCompletedEvent
+              returnCompletedEvent:com.example.shippingservice.domain.event.ReturnCompletedEvent,
+              exchangeApprovedEvent:com.example.shippingservice.domain.event.ExchangeApprovedEvent,
+              exchangeCollectingEvent:com.example.shippingservice.domain.event.ExchangeCollectingEvent,
+              exchangeReturnCompletedEvent:com.example.shippingservice.domain.event.ExchangeReturnCompletedEvent,
+              exchangeShippingEvent:com.example.shippingservice.domain.event.ExchangeShippingEvent,
+              exchangeCompletedEvent:com.example.shippingservice.domain.event.ExchangeCompletedEvent
 
 
 order-service:
