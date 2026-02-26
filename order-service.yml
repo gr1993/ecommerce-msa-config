@@ -38,7 +38,7 @@ spring:
           exchangeCollectingEvent:com.example.orderservice.consumer.event.ExchangeCollectingEvent,
           exchangeReturnCompletedEvent:com.example.orderservice.consumer.event.ExchangeReturnCompletedEvent,
           exchangeShippingEvent:com.example.orderservice.consumer.event.ExchangeShippingEvent,
-          exchangeCompletedEvent:com.example.orderservice.consumer.event.ExchangeCompletedEvent,
+          exchangeCompletedEvent:com.example.orderservice.consumer.event.ExchangeCompletedEvent
     
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
