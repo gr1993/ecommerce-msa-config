@@ -50,7 +50,8 @@ spring:
           orderCreatedEvent:com.example.orderservice.domain.event.OrderCreatedEvent,
           orderCancelledEvent:com.example.orderservice.domain.event.OrderCancelledEvent,
           couponUsedEvent:com.example.orderservice.domain.event.CouponUsedEvent,
-          couponRestoredEvent:com.example.orderservice.domain.event.CouponRestoredEvent
+          couponRestoredEvent:com.example.orderservice.domain.event.CouponRestoredEvent,
+          inventoryDecreaseEvent:com.example.orderservice.domain.event.InventoryDecreaseEvent
 
 springwolf:
   docket:
@@ -70,7 +71,8 @@ springwolf:
               orderCreatedEvent:com.example.orderservice.domain.event.OrderCreatedEvent,
               orderCancelledEvent:com.example.orderservice.domain.event.OrderCancelledEvent,
               couponUsedEvent:com.example.orderservice.domain.event.CouponUsedEvent,
-              couponRestoredEvent:com.example.orderservice.domain.event.CouponRestoredEvent
+              couponRestoredEvent:com.example.orderservice.domain.event.CouponRestoredEvent,
+              inventoryDecreaseEvent:com.example.orderservice.domain.event.InventoryDecreaseEvent
 
 
 product-service:
