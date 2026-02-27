@@ -36,6 +36,7 @@ spring:
           orderCreatedEvent:com.example.productservice.consumer.event.OrderCreatedEvent,
           orderCancelledEvent:com.example.productservice.consumer.event.OrderCancelledEvent,
           paymentCancelledEvent:com.example.productservice.consumer.event.PaymentCancelledEvent,
+          inventoryIncreaseEvent:com.example.productservice.consumer.event.InventoryIncreaseEvent,
           inventoryDecreaseEvent:com.example.productservice.consumer.event.InventoryDecreaseEvent
 
     producer:

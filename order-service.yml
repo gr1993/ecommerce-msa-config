@@ -51,6 +51,7 @@ spring:
           orderCancelledEvent:com.example.orderservice.domain.event.OrderCancelledEvent,
           couponUsedEvent:com.example.orderservice.domain.event.CouponUsedEvent,
           couponRestoredEvent:com.example.orderservice.domain.event.CouponRestoredEvent,
+          inventoryIncreaseEvent:com.example.orderservice.domain.event.InventoryIncreaseEvent,
           inventoryDecreaseEvent:com.example.orderservice.domain.event.InventoryDecreaseEvent
 
 springwolf:
